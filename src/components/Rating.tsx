@@ -14,25 +14,35 @@ export function Rating() {
     }
 
     return isSubmitted ? (
-        <div className="text-white">
-            Thank You
+        <div className="w-[412px] h-[24rem] bg-dark-blue rounded-2xl">
+            <div className="flex flex-col justify-center items-center gap-5 mt-11">
+                <img src="/illustration-thank-you.svg"></img>
+                <div className="bg-medium-grey h-8 w-48 rounded-2xl flex items-center justify-center">
+                    <h4 className="text-orange">You selected {selectedRating} out of 5</h4>
+                </div>
+                <div className="flex flex-col text-center">
+                    <h3 className="text-white font-bold text-xl leading-[2.216rem]">Thank you!</h3>
+                    <p className="w-[340px] text-center text-light-grey text-[0.93rem]">We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+                </div>
+            </div>
+
         </div>
     ) : (
-            <div className="w-[412px] h-[24rem] bg-dark-blue rounded-2xl">
-                <form onSubmit={handleFormSubmitted} className="p-8 flex flex-col justify-start items-start gap-8 font-Overpass">
-                    <div className="rounded-full flex justify-center items-center w-12 h-12 bg-medium-grey">
-                        <img src="/icon-star.svg" className="w-4 h-4" />
-                    </div>
-                    <div className="flex flex-col text-left">
-                        <h3 className="text-white font-bold text-xl leading-[2.216rem]">How did we do?</h3>
-                        <p className="w-[340px] text-left text-light-grey text-[0.93rem]">Please let us know how we did with your support request.
-                            All feedback is
-                            appreciated to help us improve our offering!
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-5 w-[21.3rem]">
-                        {[1, 2, 3, 4, 5].map((rating) => (
-                            <button type="button" onClick={() => handleRatingClicked(rating)} className=" w-[3.188rem] 
+        <div className="w-[412px] h-[24rem] bg-dark-blue rounded-2xl">
+            <form onSubmit={handleFormSubmitted} className="p-8 flex flex-col justify-start items-start gap-8 font-Overpass">
+                <div className="rounded-full flex justify-center items-center w-12 h-12 bg-medium-grey">
+                    <img src="/icon-star.svg" className="w-4 h-4" />
+                </div>
+                <div className="flex flex-col text-left">
+                    <h3 className="text-white font-bold text-xl leading-[2.216rem]">How did we do?</h3>
+                    <p className="w-[340px] text-left text-light-grey text-[0.93rem]">Please let us know how we did with your support request.
+                        All feedback is
+                        appreciated to help us improve our offering!
+                    </p>
+                </div>
+                <div className="grid grid-cols-5 w-[21.3rem]">
+                    {[1, 2, 3, 4, 5].map((rating) => (
+                        <button type="button" onClick={() => handleRatingClicked(rating)} className=" w-[3.188rem] 
                     h-[3.188rem] 
                     flex 
                     justify-center 
@@ -45,13 +55,13 @@ export function Rating() {
                    hover:text-white
                    focus:bg-orange
                    focus:text-white">{rating}</button>
-                        ))}
+                    ))}
 
-                    </div>
-                    <button disabled={selectedRating === undefined} className="w-[21.313rem] h-[2.813rem] uppercase font-bold bg-orange text-white cursor-pointer hover:text-orange hover:bg-white rounded-3xl">
-                        Submit
-                    </button>
-                </form>
-            </div>
-        )
+                </div>
+                <button disabled={selectedRating === undefined} className="w-[21.313rem] h-[2.813rem] uppercase font-bold bg-orange text-white cursor-pointer hover:text-orange hover:bg-white rounded-3xl">
+                    Submit
+                </button>
+            </form>
+        </div>
+    )
 }
